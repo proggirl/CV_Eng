@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malika Sharifova — Data Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#101A2E;--ink-soft:#1B2A45;--paper:#EFF1ED;--card:#FFFFFF;--gold:#C28E2C;--gold-soft:#E4C988;--teal:#1F8A82;--slate:#4B5563;--line:#DDE1DC;--max:940px;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Fraunces',serif;margin:0;color:var(--ink);}
+  .hero h1,.hero h2,.hero h3{color:#FFFFFF;}
+  p{margin:0;}ul{margin:0;padding:0;list-style:none;}
+  a{color:var(--teal);text-decoration:none;}a:hover{text-decoration:underline;}
+  :focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+
+  .hero{background:radial-gradient(140% 120% at 8% 0%,var(--ink-soft) 0%,var(--ink) 62%);color:#EAEDF1;padding:64px 0 52px;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;display:block;}
+  .hero h1{font-size:46px;font-weight:600;line-height:1.05;letter-spacing:-0.01em;color:#FFFFFF;}
+  .hero-role{margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#FFFFFF;line-height:1.6;}
+  .hero-tagline{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:22px;color:var(--gold-soft);margin-top:22px;line-height:1.4;}
+  .hero-contact{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px 22px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:#C3CCD6;}
+  .hero-contact a{color:#C3CCD6;}
+  .path-strip{margin-top:24px;display:flex;align-items:center;gap:0;flex-wrap:wrap;}
+  .path-step{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:#7C8B9C;white-space:nowrap;}
+  .path-step.active{color:var(--gold-soft);font-weight:500;}
+  .path-arrow{color:#2B3A57;margin:0 7px;font-size:13px;}
+  .chart-box{position:relative;}
+  .chart-caption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#7C8B9C;margin-top:6px;text-align:right;}
+  .stat-row{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap;}
+  .stat-chip{border:1px solid #2B3A57;background:rgba(255,255,255,0.03);border-radius:3px;padding:9px 13px;font-size:12.5px;color:#C3CCD6;flex:1 1 130px;}
+  .stat-chip b{display:block;font-family:'Fraunces',serif;font-size:19px;color:var(--gold-soft);font-weight:600;}
+
+  section{padding:52px 0;}
+  .section-head{display:flex;align-items:baseline;gap:14px;margin-bottom:30px;}
+  .section-head .num{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gold);}
+  .section-head h2{font-size:26px;font-weight:600;}
+  .rule{height:1px;background:var(--line);flex:1;margin-left:6px;}
+  .about-text{font-size:17px;line-height:1.75;color:var(--slate);max-width:700px;}
+  .about-text strong{color:var(--ink);font-weight:600;}
+
+  .timeline{position:relative;}
+  .timeline::before{content:"";position:absolute;left:128px;top:6px;bottom:6px;width:1px;background:var(--line);}
+  .t-item{display:grid;grid-template-columns:128px 1fr;gap:0 28px;position:relative;padding-bottom:40px;opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .t-item.visible{opacity:1;transform:translateY(0);}
+  .t-item:last-child{padding-bottom:0;}
+  .t-date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--slate);padding-top:3px;text-align:right;line-height:1.55;}
+  .t-dot{position:absolute;left:124px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px var(--paper);}
+  .t-dot.gold{background:var(--gold);}
+  .t-content h3{font-size:19px;font-weight:600;}
+  .t-dept{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--teal);margin-top:4px;line-height:1.55;}
+  .t-content ul{margin-top:14px;}
+  .t-content li{font-size:15.5px;color:var(--slate);line-height:1.6;padding-left:16px;position:relative;margin-bottom:9px;}
+  .t-content li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--gold);border-radius:50%;}
+
+  .achieve{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);padding:30px 32px;}
+  .badge{width:104px;height:104px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;transform:rotate(-7deg);flex-shrink:0;position:relative;}
+  .badge::before{content:"";position:absolute;inset:7px;border:1px solid var(--gold-soft);border-radius:50%;}
+  .badge b{font-family:'Fraunces',serif;font-size:20px;color:var(--gold);line-height:1;}
+  .badge span{font-family:'IBM Plex Mono',monospace;font-size:8.5px;letter-spacing:.05em;color:var(--slate);text-align:center;margin-top:3px;}
+  .achieve-text h3{font-size:19px;font-weight:600;margin-bottom:8px;}
+  .achieve-text p{font-size:15.5px;color:var(--slate);line-height:1.65;}
+
+  .skill-row{margin-bottom:22px;}
+  .skill-row:last-child{margin-bottom:0;}
+  .skill-label{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block;}
+  .tags{display:flex;flex-wrap:wrap;gap:9px;}
+  .tag{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink);background:#E4EAE3;border:1px solid var(--line);padding:6px 11px;border-radius:3px;}
+  .skill-row.data .tag{background:#E2F0EE;}
+  .skill-row.lang .tag{background:#F3EAD8;}
+  .tag.learning{background:#F5F0E8;color:var(--slate);font-style:italic;border-style:dashed;}
+
+  .edu-section{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;}
+  .degree-stack{display:flex;flex-direction:column;gap:16px;}
+  .degree-card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--teal);padding:22px 24px;}
+  .degree-card .year{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:block;}
+  .degree-card h3{font-size:15.5px;font-weight:600;margin-bottom:5px;line-height:1.4;}
+  .degree-card .spec{font-size:13.5px;color:var(--slate);}
+  .cert-stack{display:flex;flex-direction:column;gap:10px;}
+  .cert-card{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);padding:14px 18px;transition:border-color .2s;}
+  .cert-card:hover{border-color:var(--teal);}
+  .cert-icon{width:36px;height:36px;border-radius:50%;background:var(--paper);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+  .cert-card.wip-card .cert-icon{background:#FDF8EC;border-color:var(--gold-soft);}
+  .cert-info{flex:1;}
+  .cert-info strong{font-size:14.5px;font-weight:600;color:var(--ink);display:block;line-height:1.35;}
+  .cert-info .org{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--teal);margin-top:3px;display:block;}
+  .wip-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;background:#FDF8EC;color:var(--gold);border:1px solid var(--gold-soft);padding:2px 7px;border-radius:2px;display:inline-block;margin-top:4px;}
+
+  footer{background:var(--ink);color:#9FB3C8;padding:48px 0 36px;margin-top:20px;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;}
+  footer h2{color:#EAEDF1;font-size:22px;font-weight:600;}
+  footer .f-contact{font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.9;}
+  footer .f-contact a{color:#9FB3C8;}
+
+  @media(max-width:760px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:34px;}
+    .t-item{grid-template-columns:1fr;}
+    .timeline::before{left:5px;}
+    .t-dot{left:1px;}
+    .t-date{text-align:left;margin-left:18px;margin-bottom:6px;}
+    .t-content{margin-left:18px;}
+    .edu-section{grid-template-columns:1fr;}
+    .achieve{grid-template-columns:1fr;text-align:center;}
+    .achieve .badge{margin:0 auto;}
+    footer .wrap{flex-direction:column;align-items:flex-start;}
+  }
+  @media(prefers-reduced-motion:reduce){.t-item{opacity:1!important;transform:none!important;transition:none!important;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Resume · Data Analyst</span>
+      <h1>Malika<br>Sharifova</h1>
+      <p class="hero-role">
+        Data Analyst · Data Analytics Department, IT Division<br>
+        JSC Bank Arvand, Khujand, Tajikistan
+      </p>
+      <p class="hero-tagline">"Turning Data Into Decisions"</p>
+      <div class="path-strip">
+        <span class="path-step">Volunteer '19</span>
+        <span class="path-arrow">→</span>
+        <span class="path-step">Intern '20</span>
+        <span class="path-arrow">→</span>
+        <span class="path-step">Full-Stack Dev '21</span>
+        <span class="path-arrow">→</span>
+        <span class="path-step active">Data Analyst '25</span>
+      </div>
+      <div class="hero-contact">
+        <span>Khujand, Tajikistan</span>
+        <a href="mailto:sharifova_malika@mail.ru">sharifova_malika@mail.ru</a>
+        <a href="tel:+992887006616">+992 88 700 66 16</a>
+        <a href="https://www.linkedin.com/in/malikasharifova" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="chart-box">
+      <svg viewBox="0 0 460 230" width="100%" height="auto" role="img" aria-label="Career trajectory 2019–2026">
+        <defs>
+          <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1F8A82" stop-opacity="0.42"/>
+            <stop offset="100%" stop-color="#1F8A82" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <line x1="20" y1="206" x2="440" y2="206" stroke="#2B3A57" stroke-width="1"/>
+        <path id="growthArea" d="M20,206 L20,196 L80,188 L150,178 L220,162 L290,138 L360,90 L440,44 L440,206 Z" fill="url(#areaGrad)" opacity="0"/>
+        <path id="growthPath" d="M20,196 L80,188 L150,178 L220,162 L290,138 L360,90 L440,44" fill="none" stroke="#C28E2C" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+        <g id="dots">
+          <circle cx="20"  cy="196" r="3.5" fill="#7C8B9C" opacity="0" class="dot-marker"/>
+          <circle cx="80"  cy="188" r="3.5" fill="#7C8B9C" opacity="0" class="dot-marker"/>
+          <circle cx="150" cy="178" r="3.5" fill="#C28E2C" opacity="0" class="dot-marker"/>
+          <circle cx="360" cy="90"  r="4"   fill="#C28E2C" opacity="0" class="dot-marker"/>
+          <circle cx="440" cy="44"  r="5"   fill="#1F8A82" opacity="0" class="dot-marker"/>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="9.5">
+          <text x="20"  y="220" fill="#7C8B9C" text-anchor="middle">2019</text>
+          <text x="80"  y="220" fill="#7C8B9C" text-anchor="middle">2020</text>
+          <text x="220" y="220" fill="#7C8B9C" text-anchor="middle">2021</text>
+          <text x="360" y="220" fill="#E4C988" text-anchor="middle">2025</text>
+          <text x="440" y="220" fill="#E4C988" text-anchor="middle">2026</text>
+        </g>
+        <g font-family="IBM Plex Mono, monospace" font-size="9.5">
+          <text x="20"  y="186" fill="#7C8B9C" text-anchor="start">volunteer</text>
+          <text x="360" y="80"  fill="#E4C988" text-anchor="middle">analyst</text>
+          <text x="440" y="33"  fill="#E4C988" text-anchor="end">top 20 award</text>
+        </g>
+      </svg>
+      <p class="chart-caption">career trajectory, 2019 — 2026</p>
+      <div class="stat-row">
+        <div class="stat-chip"><b>6+ years</b>in banking sector</div>
+        <div class="stat-chip"><b>14</b>courses & certificates</div>
+        <div class="stat-chip"><b>Top 20</b>Best Women in Banking</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="about">
+    <div class="section-head"><span class="num">01</span><h2>Profile</h2><span class="rule"></span></div>
+    <p class="about-text">Data Analyst at Arvand Bank with a career journey from volunteer to specialist in a dedicated Data Analytics team. Over <strong>6 years</strong>, progressed through every stage: <strong>volunteer → intern → frontend developer → full-stack developer → data analyst</strong>. Independently developed internal bank projects automating colleagues' workflows. Winner of <strong>"Top 20 Best Women in Banking"</strong>. Currently enrolled in Yandex Practicum as a Data Analyst.</p>
+  </section>
+
+  <section id="experience">
+    <div class="section-head"><span class="num">02</span><h2>Work Experience</h2><span class="rule"></span></div>
+    <div class="timeline">
+
+      <div class="t-item">
+        <div class="t-dot gold"></div>
+        <div class="t-date">Sep 2025 —<br>Present</div>
+        <div class="t-content">
+          <h3>Data Analyst</h3>
+          <p class="t-dept">Data Analytics Department, IT Division · JSC Bank Arvand</p>
+          <ul>
+            <li>Calculation and optimization of SQL Server stored procedures, including Effective Interest Rate (EIR/EPR) for loan products</li>
+            <li>Interactive dashboards in Apache Superset for KPI monitoring, credit risk analysis, and anti-fraud indicators</li>
+            <li>PHP API development and automated email reporting scripts for the agent network</li>
+            <li>Development of a three-tier data warehouse (ODS → DDS → ADS) on Greenplum/PostgreSQL with ETL orchestration via Apache Airflow</li>
+            <li>Design and maintenance of SSRS reports for business units</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-date">Sep 2021 —<br>2025</div>
+        <div class="t-content">
+          <h3>Full-Stack Developer / Programmer</h3>
+          <p class="t-dept">Integration & Digitalization Department · JSC Bank Arvand</p>
+          <ul>
+            <li>Independent development of internal bank projects: anti-fraud system, AI module, automated reporting</li>
+            <li>Built an algorithm-based notification system: automatically processes thousands of pages of data and sends daily morning emails to staff about client appeals</li>
+            <li>Full-cycle development of a bilingual (Russian/Tajik) IT satisfaction survey: web form, PHP backend on MS SQL Server, analytics dashboard on Chart.js</li>
+            <li>Projects: "Credit Expert Personal Cabinet" and "Digital Office"</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-date">Jan 2020 —<br>Aug 2021</div>
+        <div class="t-content">
+          <h3>Intern</h3>
+          <p class="t-dept">Integration & Digitalization Department · JSC Bank Arvand</p>
+          <ul>
+            <li>Began professional growth at the bank as an intern</li>
+            <li>Mastered frontend development (HTML, CSS, JS) and internal IT processes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="t-item">
+        <div class="t-dot"></div>
+        <div class="t-date">2019</div>
+        <div class="t-content">
+          <h3>Volunteer</h3>
+          <p class="t-dept">JSC Bank Arvand, Khujand</p>
+          <ul>
+            <li>Beginning of career at Arvand Bank — first introduction to banking IT processes</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="achievement">
+    <div class="section-head"><span class="num">03</span><h2>Achievement</h2><span class="rule"></span></div>
+    <div class="achieve">
+      <div class="badge"><b>TOP 20</b><span>BEST WOMEN<br>IN BANKING</span></div>
+      <div class="achieve-text">
+        <h3>Best Employee in Banking Information Technology</h3>
+        <p>Winner of the "Top 20 Best Women in Banking" competition — the only Arvand Bank employee to receive this award. Organized by AMFOT.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="section-head"><span class="num">04</span><h2>Skills</h2><span class="rule"></span></div>
+    <div class="skill-row data">
+      <span class="skill-label">Data & Analytics</span>
+      <div class="tags">
+        <span class="tag">#Python</span><span class="tag">#SQLServer</span><span class="tag">#T-SQL</span>
+        <span class="tag">#PostgreSQL</span><span class="tag">#Greenplum</span><span class="tag">#Airflow</span>
+        <span class="tag">#Superset</span><span class="tag">#SSRS</span><span class="tag">#ETL</span>
+      </div>
+    </div>
+    <div class="skill-row" style="margin-top:22px;">
+      <span class="skill-label">Development</span>
+      <div class="tags">
+        <span class="tag">#PHP</span><span class="tag">#Go</span><span class="tag">#MySQL</span>
+        <span class="tag">#HTML</span><span class="tag">#CSS</span><span class="tag">#JavaScript</span><span class="tag">#ChartJS</span>
+      </div>
+    </div>
+    <div class="skill-row lang" style="margin-top:22px;">
+      <span class="skill-label">Languages</span>
+      <div class="tags">
+        <span class="tag">🇹🇯 Tajik — Native</span>
+        <span class="tag">🇷🇺 Russian — Fluent</span>
+        <span class="tag">🇬🇧 English — B2</span>
+        <span class="tag">🇹🇷 Turkish — A2</span>
+        <span class="tag learning">🇪🇸 Spanish — Learning</span>
+        <span class="tag learning">🇨🇳 Chinese — Learning</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head"><span class="num">05</span><h2>Education & Certifications</h2><span class="rule"></span></div>
+    <div class="edu-section">
+      <div class="degree-stack">
+        <div class="degree-card">
+          <span class="year">🎓 2017 — 2021</span>
+          <h3>Khujand State University named after Academician B. Gafurov</h3>
+          <p class="spec">Bachelor's Degree · Computer Software Engineering</p>
+        </div>
+        <div class="degree-card">
+          <span class="year">🖥 March — July 2021</span>
+          <h3>Alif Academy — OpenJS Girls Program</h3>
+          <p class="spec">HTML & CSS · JavaScript · Frontend Development Fundamentals</p>
+        </div>
+      </div>
+      <div class="cert-stack">
+        <div class="cert-card wip-card">
+          <div class="cert-icon">📊</div>
+          <div class="cert-info">
+            <strong>Yandex Practicum — Data Analyst</strong>
+            <span class="org">Yandex Practicum</span>
+            <span class="wip-badge">● In progress</span>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🤖</div>
+          <div class="cert-info">
+            <strong>AI for Her</strong>
+            <span class="org">Women in Tech Kazakhstan × EPAM SolutionsHub</span>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🧠</div>
+          <div class="cert-info">
+            <strong>Machine Learning</strong>
+            <span class="org">AI Academy, zypl.ai</span>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🐍</div>
+          <div class="cert-info">
+            <strong>SQL · Python for Data Science</strong>
+            <span class="org">Sololearn</span>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">📈</div>
+          <div class="cert-info">
+            <strong>Introduction to Data Science</strong>
+            <span class="org">GeekBrains</span>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">📱</div>
+          <div class="cert-info">
+            <strong>SMM Marketing</strong>
+            <span class="org">Skillbox</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="extra">
+    <div class="section-head"><span class="num">06</span><h2>Interests</h2><span class="rule"></span></div>
+    <div class="tags">
+      <span class="tag">📚 Motivational literature</span>
+      <span class="tag">🌍 Learning foreign languages</span>
+      <span class="tag">🧩 Rubik's Cube</span>
+      <span class="tag">🚶 Walking & outdoor activities</span>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h2>Malika Sharifova</h2>
+      <p style="margin-top:6px;color:#7C8B9C;">Data Analyst · Khujand, Tajikistan</p>
+    </div>
+    <div class="f-contact">
+      <div><a href="mailto:sharifova_malika@mail.ru">sharifova_malika@mail.ru</a></div>
+      <div><a href="tel:+992887006616">+992 88 700 66 16</a></div>
+      <div><a href="https://www.linkedin.com/in/malikasharifova" target="_blank" rel="noopener">linkedin.com/in/malikasharifova</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const path = document.getElementById('growthPath');
+  const area = document.getElementById('growthArea');
+  const dots = document.querySelectorAll('.dot-marker');
+  if (!rm) {
+    const len = path.getTotalLength();
+    path.style.strokeDasharray = len;
+    path.style.strokeDashoffset = len;
+    path.style.transition = 'stroke-dashoffset 1.8s cubic-bezier(.4,.1,.2,1)';
+    requestAnimationFrame(() => { setTimeout(() => { path.style.strokeDashoffset = 0; }, 120); });
+    area.style.transition = 'opacity 1s ease';
+    setTimeout(() => { area.style.opacity = 1; }, 1000);
+    dots.forEach((d, i) => {
+      d.style.transition = 'opacity .4s ease';
+      setTimeout(() => { d.setAttribute('opacity', 1); }, 1600 + i * 140);
+    });
+  } else {
+    area.style.opacity = 1;
+    dots.forEach(d => d.setAttribute('opacity', 1));
+  }
+  const items = document.querySelectorAll('.t-item');
+  if ('IntersectionObserver' in window && !rm) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    items.forEach(i => obs.observe(i));
+  } else { items.forEach(i => i.classList.add('visible')); }
+</script>
+</body>
+</html>
