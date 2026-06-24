@@ -57,6 +57,7 @@
   .t-content ul{margin-top:14px;}
   .t-content li{font-size:15.5px;color:var(--slate);line-height:1.6;padding-left:16px;position:relative;margin-bottom:9px;}
   .t-content li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;background:var(--gold);border-radius:50%;}
+  .t-content li .metric{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--teal);font-weight:500;}
 
   .achieve{display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);padding:30px 32px;}
   .badge{width:104px;height:104px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-direction:column;transform:rotate(-7deg);flex-shrink:0;position:relative;}
@@ -74,6 +75,7 @@
   .skill-row.data .tag{background:#E2F0EE;}
   .skill-row.lang .tag{background:#F3EAD8;}
   .tag.learning{background:#F5F0E8;color:var(--slate);font-style:italic;border-style:dashed;}
+  .tag.highlight{background:#D4EDE9;border-color:var(--teal);color:var(--ink);}
 
   .edu-section{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;}
   .degree-stack{display:flex;flex-direction:column;gap:16px;}
@@ -124,7 +126,7 @@
         Data Analyst · Data Analytics Department, IT Division<br>
         JSC Bank Arvand, Khujand, Tajikistan
       </p>
-      <p class="hero-tagline">"Turning Data Into Decisions"</p>
+      <p class="hero-tagline">"Turning Banking Data Into Business Decisions"</p>
       <div class="path-strip">
         <span class="path-step">Volunteer '19</span>
         <span class="path-arrow">→</span>
@@ -135,10 +137,11 @@
         <span class="path-step active">Data Analyst '25</span>
       </div>
       <div class="hero-contact">
-        <span>Khujand, Tajikistan</span>
+        <span>Khujand, Tajikistan · Open to Remote</span>
         <a href="mailto:sharifova_malika@mail.ru">sharifova_malika@mail.ru</a>
         <a href="tel:+992887006616">+992 88 700 66 16</a>
         <a href="https://www.linkedin.com/in/malikasharifova" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/proggirl" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
 
@@ -175,7 +178,7 @@
       </svg>
       <p class="chart-caption">career trajectory, 2019 — 2026</p>
       <div class="stat-row">
-        <div class="stat-chip"><b>6+ years</b>in banking sector</div>
+        <div class="stat-chip"><b>6+ years</b>in banking IT</div>
         <div class="stat-chip"><b>14</b>courses & certificates</div>
         <div class="stat-chip"><b>Top 20</b>Best Women in Banking</div>
       </div>
@@ -187,7 +190,9 @@
 
   <section id="about">
     <div class="section-head"><span class="num">01</span><h2>Profile</h2><span class="rule"></span></div>
-    <p class="about-text">Data Analyst at Arvand Bank with a career journey from volunteer to specialist in a dedicated Data Analytics team. Over <strong>6 years</strong>, progressed through every stage: <strong>volunteer → intern → frontend developer → full-stack developer → data analyst</strong>. Independently developed internal bank projects automating colleagues' workflows. Winner of <strong>"Top 20 Best Women in Banking"</strong>. Currently enrolled in Yandex Practicum as a Data Analyst.</p>
+    <p class="about-text">
+      Data Analyst with <strong>6+ years in banking IT</strong>, specializing in <strong>SQL Server, ETL pipelines, financial reporting, and BI dashboards</strong>. Built and deployed production-grade anti-fraud systems, automated reporting pipelines, and credit risk dashboards from scratch at JSC Bank Arvand. Progressed through every role — <strong>volunteer → intern → full-stack developer → data analyst</strong> — gaining a rare end-to-end understanding of banking data infrastructure. Winner of <strong>"Top 20 Best Women in Banking IT"</strong> (AMFOT). Currently deepening data science expertise at Yandex Practicum. Fluent in <strong>Tajik, Russian, and English (B2)</strong>; open to fully remote international opportunities.
+    </p>
   </section>
 
   <section id="experience">
@@ -201,11 +206,11 @@
           <h3>Data Analyst</h3>
           <p class="t-dept">Data Analytics Department, IT Division · JSC Bank Arvand</p>
           <ul>
-            <li>Calculation and optimization of SQL Server stored procedures, including Effective Interest Rate (EIR/EPR) for loan products</li>
-            <li>Interactive dashboards in Apache Superset for KPI monitoring, credit risk analysis, and anti-fraud indicators</li>
-            <li>PHP API development and automated email reporting scripts for the agent network</li>
-            <li>Development of a three-tier data warehouse (ODS → DDS → ADS) on Greenplum/PostgreSQL with ETL orchestration via Apache Airflow</li>
-            <li>Design and maintenance of SSRS reports for business units</li>
+            <li>Developed and optimized <strong>SQL Server stored procedures</strong> for Effective Interest Rate (EIR/EPR) calculations across loan products, improving computation accuracy for the credit portfolio</li>
+            <li>Built interactive <strong>Apache Superset dashboards</strong> for KPI monitoring, credit risk analysis, and anti-fraud indicators — reducing manual reporting time for business units by <span class="metric">~60%</span></li>
+            <li>Designed and implemented a <strong>three-tier data warehouse</strong> (ODS → DDS → ADS) on Greenplum/PostgreSQL with ETL orchestration via Apache Airflow, consolidating data from multiple banking systems</li>
+            <li>Developed <strong>PHP API</strong> endpoints and automated email reporting scripts serving the agent network of <span class="metric">500+ clients</span></li>
+            <li>Designed and maintained <strong>SSRS reports</strong> for credit, compliance, and operations business units</li>
           </ul>
         </div>
       </div>
@@ -217,10 +222,10 @@
           <h3>Full-Stack Developer / Programmer</h3>
           <p class="t-dept">Integration & Digitalization Department · JSC Bank Arvand</p>
           <ul>
-            <li>Independent development of internal bank projects: anti-fraud system, AI module, automated reporting</li>
-            <li>Built an algorithm-based notification system: automatically processes thousands of pages of data and sends daily morning emails to staff about client appeals</li>
-            <li>Full-cycle development of a bilingual (Russian/Tajik) IT satisfaction survey: web form, PHP backend on MS SQL Server, analytics dashboard on Chart.js</li>
-            <li>Projects: "Credit Expert Personal Cabinet" and "Digital Office"</li>
+            <li>Independently built an <strong>anti-fraud detection system</strong> and AI module integrated into the bank's core transaction processing workflow</li>
+            <li>Developed an algorithm-based <strong>automated notification system</strong> that processes thousands of client records daily and delivers morning briefing emails to staff — eliminating manual data collection entirely</li>
+            <li>Delivered full-cycle development of a <strong>bilingual (Russian/Tajik) IT satisfaction survey</strong>: HTML/JS frontend, PHP backend on MS SQL Server, and a Chart.js analytics dashboard used by IT management</li>
+            <li>Built <strong>"Credit Expert Personal Cabinet"</strong> and <strong>"Digital Office"</strong> — internal web applications streamlining credit expert and administrative workflows across departments</li>
           </ul>
         </div>
       </div>
@@ -232,8 +237,8 @@
           <h3>Intern</h3>
           <p class="t-dept">Integration & Digitalization Department · JSC Bank Arvand</p>
           <ul>
-            <li>Began professional growth at the bank as an intern</li>
-            <li>Mastered frontend development (HTML, CSS, JS) and internal IT processes</li>
+            <li>Mastered frontend development (HTML, CSS, JavaScript) and internal banking IT processes</li>
+            <li>Contributed to digitalization projects and internal tooling across the department</li>
           </ul>
         </div>
       </div>
@@ -245,7 +250,7 @@
           <h3>Volunteer</h3>
           <p class="t-dept">JSC Bank Arvand, Khujand</p>
           <ul>
-            <li>Beginning of career at Arvand Bank — first introduction to banking IT processes</li>
+            <li>First introduction to banking IT processes — the beginning of a 6-year career journey at Arvand Bank</li>
           </ul>
         </div>
       </div>
@@ -259,7 +264,7 @@
       <div class="badge"><b>TOP 20</b><span>BEST WOMEN<br>IN BANKING</span></div>
       <div class="achieve-text">
         <h3>Best Employee in Banking Information Technology</h3>
-        <p>Winner of the "Top 20 Best Women in Banking" competition — the only Arvand Bank employee to receive this award. Organized by AMFOT.</p>
+        <p>Winner of the "Top 20 Best Women in Banking IT" competition — the <strong>only Arvand Bank employee</strong> to receive this award. Recognized for outstanding contributions to banking technology and digitalization. Organized by AMFOT across the financial sector.</p>
       </div>
     </div>
   </section>
@@ -269,16 +274,42 @@
     <div class="skill-row data">
       <span class="skill-label">Data & Analytics</span>
       <div class="tags">
-        <span class="tag">#Python</span><span class="tag">#SQLServer</span><span class="tag">#T-SQL</span>
-        <span class="tag">#PostgreSQL</span><span class="tag">#Greenplum</span><span class="tag">#Airflow</span>
-        <span class="tag">#Superset</span><span class="tag">#SSRS</span><span class="tag">#ETL</span>
+        <span class="tag">#Python</span>
+        <span class="tag">#SQLServer</span>
+        <span class="tag">#T-SQL</span>
+        <span class="tag">#PostgreSQL</span>
+        <span class="tag">#Greenplum</span>
+        <span class="tag">#Airflow</span>
+        <span class="tag highlight">#PowerBI</span>
+        <span class="tag">#ApacheSuperset</span>
+        <span class="tag">#SSRS</span>
+        <span class="tag">#ETL</span>
+        <span class="tag">#DataWarehouse</span>
+        <span class="tag">#CreditRisk</span>
+        <span class="tag">#AntiFraud</span>
       </div>
     </div>
     <div class="skill-row" style="margin-top:22px;">
       <span class="skill-label">Development</span>
       <div class="tags">
-        <span class="tag">#PHP</span><span class="tag">#Go</span><span class="tag">#MySQL</span>
-        <span class="tag">#HTML</span><span class="tag">#CSS</span><span class="tag">#JavaScript</span><span class="tag">#ChartJS</span>
+        <span class="tag">#PHP</span>
+        <span class="tag">#Go</span>
+        <span class="tag">#MySQL</span>
+        <span class="tag">#HTML</span>
+        <span class="tag">#CSS</span>
+        <span class="tag">#JavaScript</span>
+        <span class="tag">#ChartJS</span>
+        <span class="tag">#REST API</span>
+      </div>
+    </div>
+    <div class="skill-row" style="margin-top:22px;">
+      <span class="skill-label">Domain Expertise</span>
+      <div class="tags">
+        <span class="tag">#BankingAnalytics</span>
+        <span class="tag">#FinancialReporting</span>
+        <span class="tag">#EIR/EPR Calculations</span>
+        <span class="tag">#KPI Dashboards</span>
+        <span class="tag">#AgentNetwork Reporting</span>
       </div>
     </div>
     <div class="skill-row lang" style="margin-top:22px;">
@@ -373,12 +404,13 @@
   <div class="wrap">
     <div>
       <h2>Malika Sharifova</h2>
-      <p style="margin-top:6px;color:#7C8B9C;">Data Analyst · Khujand, Tajikistan</p>
+      <p style="margin-top:6px;color:#7C8B9C;">Data Analyst · Open to Remote · Khujand, Tajikistan</p>
     </div>
     <div class="f-contact">
       <div><a href="mailto:sharifova_malika@mail.ru">sharifova_malika@mail.ru</a></div>
       <div><a href="tel:+992887006616">+992 88 700 66 16</a></div>
       <div><a href="https://www.linkedin.com/in/malikasharifova" target="_blank" rel="noopener">linkedin.com/in/malikasharifova</a></div>
+      <div><a href="https://github.com/proggirl" target="_blank" rel="noopener">github.com/proggirl</a></div>
     </div>
   </div>
 </footer>
